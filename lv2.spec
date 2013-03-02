@@ -1,11 +1,11 @@
 Summary:	Plugin standard for audio systems
 Name:		lv2
-Version:	1.2.0
+Version:	1.4.0
 Release:	1
 License:	LGPL v2.1 or later and BSD-like
 Group:		Libraries
 Source0:	http://lv2plug.in/spec/%{name}-%{version}.tar.bz2
-# Source0-md5:	323b851563b4da1ad2c0faf5c76f0e3a
+# Source0-md5:	b7fb567fbfadae14ecd4f422fa24d41e
 BuildRequires:	gtk+-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	pkg-config
@@ -27,7 +27,6 @@ LV2 development files.
 Summary:	Example LV2 plugins
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtk+
 
 %description examples
 Example LV2 plugins.
@@ -116,8 +115,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lv2/eg-sampler.lv2/sampler.ttl
 %{_libdir}/lv2/eg-sampler.lv2/sampler_ui.so
 
-%dir %{_libdir}/lv2/eg-synth.lv2
-%attr(755,root,root) %{_libdir}/lv2/eg-synth.lv2/synth.so
-%{_libdir}/lv2/eg-synth.lv2/manifest.ttl
-%{_libdir}/lv2/eg-synth.lv2/synth.ttl
+%dir %{_libdir}/lv2/eg-metro.lv2
+%attr(755,root,root) %{_libdir}/lv2/eg-metro.lv2/metro.so
+
+%dir %{_libdir}/lv2/eg-midigate.lv2
+%attr(755,root,root) %{_libdir}/lv2/eg-midigate.lv2/midigate.so
 
