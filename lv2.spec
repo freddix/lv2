@@ -1,11 +1,11 @@
 Summary:	Plugin standard for audio systems
 Name:		lv2
-Version:	1.4.0
+Version:	1.6.0
 Release:	1
 License:	LGPL v2.1 or later and BSD-like
 Group:		Libraries
 Source0:	http://lv2plug.in/spec/%{name}-%{version}.tar.bz2
-# Source0-md5:	b7fb567fbfadae14ecd4f422fa24d41e
+# Source0-md5:	943c3a62ec9b4e62139d83f8dd095fab
 BuildRequires:	gtk+-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	pkg-config
