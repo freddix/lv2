@@ -1,11 +1,12 @@
 Summary:	Plugin standard for audio systems
 Name:		lv2
-Version:	1.6.0
+Version:	1.8.0
 Release:	1
 License:	LGPL v2.1 or later and BSD-like
 Group:		Libraries
 Source0:	http://lv2plug.in/spec/%{name}-%{version}.tar.bz2
-# Source0-md5:	943c3a62ec9b4e62139d83f8dd095fab
+# Source0-md5:	2bdcf01f24fa567448afbf6b8be17044
+# for examples
 BuildRequires:	gtk+-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	pkg-config
@@ -33,6 +34,8 @@ Example LV2 plugins.
 
 %prep
 %setup -q
+
+%{__sed} -i -e 's|#!.*|#!/usr/bin/python|g' lv2specgen/*.py
 
 %build
 export CC="%{__cc}"
@@ -99,6 +102,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/lv2.h
 %{_libdir}/lv2/*.lv2/*.c
 %{_libdir}/lv2/*.lv2/*.h
+
+%attr(755,root,root) %{_bindir}/lv2specgen.py
+%{_datadir}/lv2specgen
+
 %{_pkgconfigdir}/*.pc
 
 %files examples
@@ -108,6 +115,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lv2/eg-amp.lv2/amp.ttl
 %{_libdir}/lv2/eg-amp.lv2/manifest.ttl
 
+%dir %{_libdir}/lv2/eg-metro.lv2
+%attr(755,root,root) %{_libdir}/lv2/eg-metro.lv2/metro.so
+
+%dir %{_libdir}/lv2/eg-midigate.lv2
+%attr(755,root,root) %{_libdir}/lv2/eg-midigate.lv2/midigate.so
+
 %dir %{_libdir}/lv2/eg-sampler.lv2
 %attr(755,root,root) %{_libdir}/lv2/eg-sampler.lv2/sampler.so
 %{_libdir}/lv2/eg-sampler.lv2/click.wav
@@ -115,9 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lv2/eg-sampler.lv2/sampler.ttl
 %{_libdir}/lv2/eg-sampler.lv2/sampler_ui.so
 
-%dir %{_libdir}/lv2/eg-metro.lv2
-%attr(755,root,root) %{_libdir}/lv2/eg-metro.lv2/metro.so
-
-%dir %{_libdir}/lv2/eg-midigate.lv2
-%attr(755,root,root) %{_libdir}/lv2/eg-midigate.lv2/midigate.so
+%dir %{_libdir}/lv2/eg-scope.lv2
+%{_libdir}/lv2/eg-scope.lv2/examploscope.so
+%{_libdir}/lv2/eg-scope.lv2/examploscope_ui.so
 
