@@ -1,11 +1,11 @@
 Summary:	Plugin standard for audio systems
 Name:		lv2
-Version:	1.8.0
+Version:	1.10.0
 Release:	1
 License:	LGPL v2.1 or later and BSD-like
 Group:		Libraries
 Source0:	http://lv2plug.in/spec/%{name}-%{version}.tar.bz2
-# Source0-md5:	2bdcf01f24fa567448afbf6b8be17044
+# Source0-md5:	dbf6ac9a1003b754155501984eebd57e
 # for examples
 BuildRequires:	gtk+-devel
 BuildRequires:	libsndfile-devel
@@ -123,12 +123,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_libdir}/lv2/eg-sampler.lv2
 %attr(755,root,root) %{_libdir}/lv2/eg-sampler.lv2/sampler.so
+%attr(755,root,root) %{_libdir}/lv2/eg-sampler.lv2/sampler_ui.so
 %{_libdir}/lv2/eg-sampler.lv2/click.wav
 %{_libdir}/lv2/eg-sampler.lv2/manifest.ttl
 %{_libdir}/lv2/eg-sampler.lv2/sampler.ttl
-%{_libdir}/lv2/eg-sampler.lv2/sampler_ui.so
 
 %dir %{_libdir}/lv2/eg-scope.lv2
-%{_libdir}/lv2/eg-scope.lv2/examploscope.so
-%{_libdir}/lv2/eg-scope.lv2/examploscope_ui.so
+%attr(755,root,root) %{_libdir}/lv2/eg-scope.lv2/examploscope.so
+%attr(755,root,root) %{_libdir}/lv2/eg-scope.lv2/examploscope_ui.so
+
+%dir %{_libdir}/lv2/eg-fifths.lv2
+%attr(755,root,root) %{_libdir}/lv2/eg-fifths.lv2/fifths.so
 
