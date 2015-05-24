@@ -1,11 +1,11 @@
 Summary:	Plugin standard for audio systems
 Name:		lv2
-Version:	1.10.0
+Version:	1.12.0
 Release:	1
 License:	LGPL v2.1 or later and BSD-like
 Group:		Libraries
 Source0:	http://lv2plug.in/spec/%{name}-%{version}.tar.bz2
-# Source0-md5:	dbf6ac9a1003b754155501984eebd57e
+# Source0-md5:	665580dc761de40b0d335001a204496a
 # for examples
 BuildRequires:	gtk+-devel
 BuildRequires:	libsndfile-devel
@@ -44,7 +44,7 @@ export CFLAGS="%{rpmcflags}"
 export CXXFLAGS="%{rpmcxxflags}"
 ./waf -v configure \
 	--libdir=%{_libdir}	\
-	--nocache		\
+	--lv2dir=%{_libdir}/lv2	\
 	--prefix=%{_prefix}
 ./waf -v
 
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc README.md
 %dir %{_libdir}/lv2
 %dir %{_libdir}/lv2/*.lv2
 %{_libdir}/lv2/*.lv2/*.ttl
